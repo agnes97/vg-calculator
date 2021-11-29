@@ -1,0 +1,7 @@
+main.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  width: inherit;
+}
