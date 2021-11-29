@@ -1,7 +1,15 @@
-main.page-wrapper {
+div.page-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
   width: inherit;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main {
+  flex-grow: 1;
+  width: 100%;
 }

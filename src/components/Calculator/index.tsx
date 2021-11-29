@@ -3,7 +3,7 @@ import './index.css'
 
 const Calculator: React.FC = () => {
     const numbers = [3, 2, 1, 6, 5, 4, 9, 8, 7]
-    const signs = ["AC", "√", "%", "÷", "*", "-", "+", "00", "0", ".", "="]
+    const signs = ["(", ")", "%", "÷", "*", "-", "+", "DEL", "0", ".", "="]
 
     const alphanumeric = numbers.toString().split(",").concat(signs)
 
