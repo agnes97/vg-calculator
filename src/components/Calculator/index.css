@@ -21,8 +21,9 @@ header.calculator__header {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     border-radius: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .calculator__button {
