@@ -1,5 +1,6 @@
 import React from 'react'
-import { Action, ACTIONS } from '..'
+import { ACTIONS } from '..'
+import { Action } from '../types'
 
 type Props = {
     className?: string

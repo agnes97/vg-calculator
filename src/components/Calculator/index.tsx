@@ -2,6 +2,7 @@ import React, { useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
 import Button from './CalculatorButton'
 import './index.css'
+import { Action, State } from './types'
 
 export enum ACTIONS {
     ADD_DIGIT,
@@ -11,20 +12,18 @@ export enum ACTIONS {
     EVALUATE,
 }
 
-export type State = {
-    currentOperand?: string | number | null
-    previousOperand?: string | number | null
-    operation?: string | number | null
-}
-
-export type Action = {
-    type: ACTIONS | null
-    payload: {value: string | number}
-}
-
 const Calculator: React.FC = () => {
     const [headerText, setHeaderText] = useState<string>("Start counting, baby! 💛")
 
+    // DETERMINE VALUE TYPE (ACTION)
+    const determineAction = (character: Action["payload"]["value"]) => {
+        if (character === "DEL") return ACTIONS.CLEAR
+        if (character === ".") return ACTIONS.ADD_DIGIT
+        if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
+        if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
+        else return null
+    }
+    
     const reducer = (state: State, { type, payload }: Action): State => {
         switch (type) {
             // WRITE DIGITS
@@ -64,15 +63,6 @@ const Calculator: React.FC = () => {
         reducer,
         {}
     )
-
-    // DETERMINE VALUE TYPE (ACTION)
-    const determineAction = (character: Action["payload"]["value"]) => {
-        if (character === "DEL") return ACTIONS.CLEAR
-        if (character === ".") return ACTIONS.ADD_DIGIT
-        if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
-        if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
-        else return null
-    }
     
     return (
         <section className="calculator">
