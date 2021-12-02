@@ -12,8 +12,8 @@ export const ACTIONS = {
 }
 
 export type State = {
-    currentOperand?: string | null
-    previousOperand?: string | null
+    currentOperand?: string | number | null
+    previousOperand?: string | number | null
     operation?: string | number | null
 }
 
@@ -61,8 +61,9 @@ const Calculator: React.FC = () => {
     )
 
     // DETERMINE VALUE TYPE (ACTION)
-    const determineAction = (character: string | number) => {
+    const determineAction = (character: Action["payload"]["value"]) => {
         if (character === "DEL") return ACTIONS.CLEAR
+        if (character === ".") return ACTIONS.ADD_DIGIT
         if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
         if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
     }
@@ -77,16 +78,16 @@ const Calculator: React.FC = () => {
                     }
                 </p>
             </header>
-            {fillButtons().map((character: string | number, index: number) => (
+            {fillButtons().map((value: Action["payload"]["value"], index: number) => (
                 <Button
                     key={index}
-                    value={character}
+                    value={value}
                     className={`
                         calculator__button
-                        ${!isNaN(+character) ? "calculator__button--number" : "calculator__button--sign"}
+                        ${!isNaN(+value) ? "calculator__button--number" : "calculator__button--sign"}
                     `}
                     dispatch={dispatch} 
-                    actionType={determineAction(character)}                
+                    actionType={determineAction(value)}                
                 />
             ))}
         </section>
