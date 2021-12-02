@@ -3,12 +3,12 @@ import { fillButtons } from '../../services/calculatorData'
 import Button from './CalculatorButton'
 import './index.css'
 
-export const ACTIONS = {
-    ADD_DIGIT: "add-digit",
-    CHOOSE_OPERATION: "choose-operation",
-    CLEAR: "clear",
-    DELETE_DIGIT: "delete-digit",
-    EVALUATE: "evaluate",
+export enum ACTIONS {
+    ADD_DIGIT,
+    CHOOSE_OPERATION,
+    CLEAR,
+    DELETE_DIGIT,
+    EVALUATE,
 }
 
 export type State = {
@@ -18,7 +18,7 @@ export type State = {
 }
 
 export type Action = {
-    type: string
+    type: ACTIONS | null
     payload: {value: string | number}
 }
 
@@ -71,6 +71,7 @@ const Calculator: React.FC = () => {
         if (character === ".") return ACTIONS.ADD_DIGIT
         if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
         if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
+        else return null
     }
     
     return (
