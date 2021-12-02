@@ -1,18 +1,25 @@
 nav {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: none;
 }
 
-nav > button {
-    border-bottom-right-radius: 3rem;
-    font-size: 2rem;
-    border: none;
-    color: hsl(60, 100%, 70%);
-    background-color: hsl(230, 30%, 40%);
-    padding: 1rem 2rem;
-}
-
-nav > button:hover {
-    color: hsl(0, 0%, 100%);
+@media screen and (max-width: 909px) {
+    nav {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    nav > button {
+        border-bottom-right-radius: 3rem;
+        font-size: 2rem;
+        border: none;
+        color: hsl(60, 100%, 70%);
+        background-color: hsl(230, 30%, 40%);
+        padding: 1rem 2rem;
+    }
+    
+    nav > button:hover {
+        color: hsl(0, 0%, 100%);
+    }
 }

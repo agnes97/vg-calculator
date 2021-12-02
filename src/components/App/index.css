@@ -13,3 +13,11 @@ main {
   flex-grow: 1;
   width: 100%;
 }
+
+@media screen and (min-width: 910px) {
+  main {
+    width: 30%;
+    align-self: flex-end;
+    margin-right: 10rem;
+  }
+}
