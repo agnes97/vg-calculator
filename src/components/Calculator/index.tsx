@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
 import Button from './CalculatorButton'
 import './index.css'
@@ -23,6 +23,8 @@ export type Action = {
 }
 
 const Calculator: React.FC = () => {
+    const [headerText, setHeaderText] = useState<string>("Start counting, baby! 💛")
+
     const reducer = (state: State, { type, payload }: Action): State => {
         switch (type) {
             case ACTIONS.ADD_DIGIT: 
@@ -30,6 +32,9 @@ const Calculator: React.FC = () => {
                     ...state,
                     currentOperand: `${state.currentOperand || ""}${payload.value}`,
                 }
+            case ACTIONS.CLEAR:
+                setHeaderText("Anything else? 💭")
+                return {}
             default:
                 return state
         }
@@ -40,13 +45,18 @@ const Calculator: React.FC = () => {
         {}
     )
 
+    const determineOperation = (character: string) => {
+        if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
+        if (character === "DEL") return ACTIONS.CLEAR
+    }
+    
     return (
         <section className="calculator">
             <header className="calculator__header">
                 <p>
                     {currentOperand
                         ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`
-                        : "Start counting, baby! 💛"
+                        : headerText
                     }
                 </p>
             </header>
@@ -58,7 +68,8 @@ const Calculator: React.FC = () => {
                         calculator__button
                         ${!isNaN(+character) ? "calculator__button--number" : "calculator__button--sign"}
                     `}
-                    dispatch={dispatch}                
+                    dispatch={dispatch} 
+                    valueType={determineOperation(character)}                
                 />
             ))}
         </section>
