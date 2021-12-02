@@ -29,7 +29,12 @@ const Calculator: React.FC = () => {
         switch (type) {
             // WRITE DIGITS
             case ACTIONS.ADD_DIGIT: 
-                if (payload.value === 0 && state.currentOperand === "0") { return state }
+                if (payload.value === 0 && state.currentOperand === "0") { 
+                    return state // Don't repeat 0 if it's the first character!
+                }
+                if (payload.value === "." && state.currentOperand?.toString().includes(".")) { 
+                    return state // Don't include more than one "." per operand!
+                }
                 return {
                     ...state,
                     currentOperand: `${state.currentOperand || ""}${payload.value}`,
