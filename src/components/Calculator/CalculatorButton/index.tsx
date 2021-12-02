@@ -6,13 +6,13 @@ type Props = {
     onClick?: any
     dispatch: ({ type, payload }: Action) => void
     value: string
-    valueType?: string
+    actionType?: string
 }
 
-const Button: React.FC<Props> = ({ className, value, dispatch, valueType }) => (
+const Button: React.FC<Props> = ({ className, value, dispatch, actionType }) => (
     <button 
         className={className} 
-        onClick={() => dispatch({type: valueType ?? "", payload: {value}})}>
+        onClick={() => dispatch({type: actionType ?? "", payload: {value}})}>
             {value}
     </button>
 )
