@@ -5,7 +5,7 @@ type Props = {
     className?: string
     onClick?: any
     dispatch: ({ type, payload }: Action) => void
-    value: string
+    value: string | number
     actionType?: string
 }
 

@@ -14,12 +14,12 @@ export const ACTIONS = {
 export type State = {
     currentOperand?: string | null
     previousOperand?: string | null
-    operation?: string | null
+    operation?: string | number | null
 }
 
 export type Action = {
     type: string
-    payload: {value: string}
+    payload: {value: string | number}
 }
 
 const Calculator: React.FC = () => {
@@ -29,6 +29,7 @@ const Calculator: React.FC = () => {
         switch (type) {
             // WRITE DIGITS
             case ACTIONS.ADD_DIGIT: 
+                if (payload.value === 0 && state.currentOperand === "0") { return state }
                 return {
                     ...state,
                     currentOperand: `${state.currentOperand || ""}${payload.value}`,
@@ -60,7 +61,7 @@ const Calculator: React.FC = () => {
     )
 
     // DETERMINE VALUE TYPE (ACTION)
-    const determineAction = (character: string) => {
+    const determineAction = (character: string | number) => {
         if (character === "DEL") return ACTIONS.CLEAR
         if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
         if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
@@ -76,7 +77,7 @@ const Calculator: React.FC = () => {
                     }
                 </p>
             </header>
-            {fillButtons().map((character: string, index: number) => (
+            {fillButtons().map((character: string | number, index: number) => (
                 <Button
                     key={index}
                     value={character}
