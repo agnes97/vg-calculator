@@ -4,6 +4,7 @@ section.calculator {
     flex-grow: 1;
     margin: 0 auto;
     padding: 1rem;
+    background-color: hsl(230, 30%, 40%);
     
     display: grid;
     grid-template-columns: repeat(4, 1fr);
