@@ -1,13 +1,26 @@
 nav {
+    margin: 0 auto;
+}
+
+nav > h1 {
+    padding-top: 1rem;
+    margin: 0;
+    color: hsl(230, 50%, 20%);
+}
+
+nav > button {
     display: none;
 }
 
 @media screen and (max-width: 909px) {
     nav {
-        display: block;
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    nav > h1 {
+        display: none;
     }
     
     nav > button {
