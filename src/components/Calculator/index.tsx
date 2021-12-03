@@ -18,10 +18,22 @@ const Calculator: React.FC = () => {
     // DETERMINE VALUE TYPE (ACTION)
     const determineAction = (character: Action["payload"]["value"]) => {
         if (character === "DEL") return ACTIONS.CLEAR
+        if (character === "=") return ACTIONS.EVALUATE
         if (character === ".") return ACTIONS.ADD_DIGIT
         if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
         if (isNaN(+character)) return ACTIONS.CHOOSE_OPERATION
         else return null
+    }
+
+    // EVALUATE CALCULATOR OPERATIONS ON "="
+    const evaluate = ({ operation, previousOperand, currentOperand}: State) => {
+        const leftSide = Number(previousOperand)
+        const rightSide = Number(currentOperand)
+
+        if (operation === "+") { return `VÝSLEDEK: ${leftSide + rightSide}` }
+        if (operation === "-") { return `VÝSLEDEK: ${leftSide - rightSide}` }
+        if (operation === "*") { return `VÝSLEDEK: ${leftSide * rightSide}` }
+        if (operation === "÷") { return `VÝSLEDEK: ${leftSide / rightSide}` }
     }
     
     const reducer = (state: State, { type, payload }: Action): State => {
@@ -34,6 +46,15 @@ const Calculator: React.FC = () => {
                 if (payload.value === "." && state.currentOperand?.toString().includes(".")) { 
                     return state // Don't include more than one "." per operand!
                 }
+
+                if (state.overwrite) {
+                    return {
+                      ...state,
+                      currentOperand: payload.value,
+                      overwrite: false, // Star new operation after evaluating previous one
+                    }
+                }
+
                 return {
                     ...state,
                     currentOperand: `${state.currentOperand || ""}${payload.value}`,
@@ -46,6 +67,24 @@ const Calculator: React.FC = () => {
                     previousOperand: state.currentOperand,
                     operation: payload.value,
                     currentOperand: null,
+                }
+
+            // EVALUATE OPERATION
+            case ACTIONS.EVALUATE:
+                if (
+                    state.previousOperand == null ||
+                    state.operation === null ||
+                    state.currentOperand === null
+                ) { 
+                    return state                  
+                }
+
+                return {
+                    ...state,
+                    overwrite: true,
+                    previousOperand: null,
+                    operation: null,
+                    currentOperand: evaluate(state)
                 }
 
             // CLEAR HISTORY
