@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
 import Button from './CalculatorButton'
 import './index.css'
@@ -30,10 +30,10 @@ const Calculator: React.FC = () => {
         const leftSide = Number(previousOperand)
         const rightSide = Number(currentOperand)
 
-        if (operation === "+") { return `VÝSLEDEK: ${leftSide + rightSide}` }
-        if (operation === "-") { return `VÝSLEDEK: ${leftSide - rightSide}` }
-        if (operation === "*") { return `VÝSLEDEK: ${leftSide * rightSide}` }
-        if (operation === "÷") { return `VÝSLEDEK: ${leftSide / rightSide}` }
+        if (operation === "+") { return `VÝSLEDEK: ${(leftSide + rightSide).toLocaleString()}` }
+        if (operation === "-") { return `VÝSLEDEK: ${(leftSide - rightSide).toLocaleString()}` }
+        if (operation === "*") { return `VÝSLEDEK: ${(leftSide * rightSide).toLocaleString()}` }
+        if (operation === "÷") { return `VÝSLEDEK: ${(leftSide / rightSide).toLocaleString()}` }
     }
     
     const reducer = (state: State, { type, payload }: Action): State => {
@@ -102,6 +102,19 @@ const Calculator: React.FC = () => {
         reducer,
         {}
     )
+
+    const recogniseKey = useCallback((key: string) => {
+        // TODO: Recognise "=" with enter and "÷" with "/" and "DEL" with "delete"
+        const recognisedValues = fillButtons().map((value) => value.toString())
+
+        if (recognisedValues.includes(key)) {
+            dispatch({ type: determineAction(key), payload: { value: key } })
+        }
+    }, [])
+
+    useEffect(() => {
+        document.addEventListener('keydown', (e) => recogniseKey(e.key))
+    }, [recogniseKey])
     
     return (
         <section className="calculator">

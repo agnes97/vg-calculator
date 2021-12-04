@@ -10,12 +10,16 @@ type Props = {
     actionType: ACTIONS | null
 }
 
-const Button: React.FC<Props> = ({ className, value, dispatch, actionType }) => (
-    <button 
-        className={className} 
-        onClick={() => dispatch({type: actionType, payload: {value}})}>
+const Button: React.FC<Props> = ({ className, value, dispatch, actionType }) => {
+    const passDispatch = () => dispatch({ type: actionType, payload: { value } })
+
+    return (
+        <button
+            className={className}
+            onClick={passDispatch}>
             {value}
-    </button>
-)
+        </button>
+    )
+}
 
 export default Button
