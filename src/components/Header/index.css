@@ -12,6 +12,7 @@ nav > button {
     display: none;
 }
 
+
 @media screen and (max-width: 909px) {
     nav {
         position: absolute;
@@ -24,6 +25,7 @@ nav > button {
     }
     
     nav > button {
+        display: block;
         border-bottom-right-radius: 3rem;
         font-size: 2rem;
         border: none;
