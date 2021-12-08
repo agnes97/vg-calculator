@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../Title'
 import './index.css'
 
 const Header: React.FC = () => (
     <header>
-        <h1>Vincent van Gogh's Calculator</h1>
+        <Title />
     </header>
 )
 
