@@ -18,7 +18,7 @@ const Calculator: React.FC = () => {
 
     // DETERMINE VALUE TYPE (ACTION)
     const determineAction = (character: Action["payload"]["value"]) => {
-        if (character === "⇚") return ACTIONS.CLEAR // EDIT TO ONLY DELETE ONE DIGIT
+        if (character === "⇚") return ACTIONS.DELETE_DIGIT // EDIT TO ONLY DELETE ONE DIGIT
         if (character === "⦻") return ACTIONS.CLEAR
         if (character === "=") return ACTIONS.EVALUATE
         if (character === ".") return ACTIONS.ADD_DIGIT
@@ -88,6 +88,20 @@ const Calculator: React.FC = () => {
                     operation: null,
                     currentOperand: evaluate(state),
                     lastResult: `${state.previousOperand} ${state.operation} ${state.currentOperand} = ${evaluate(state)}`,
+                }
+
+            case ACTIONS.DELETE_DIGIT: 
+                if (state.currentOperand == null) return state
+                if (state.currentOperand.toString().length === 1) {
+                    return { 
+                        ...state, 
+                        currentOperand: null 
+                    }
+                }
+
+                return {
+                    ...state,
+                    currentOperand: state.currentOperand.toString().slice(0, -1),
                 }
 
             // CLEAR HISTORY
