@@ -10,9 +10,6 @@ footer {
     footer > p {
         margin-top: 0;
         margin-bottom: 1rem;
-        font-size: 1rem;
-        color: hsl(230, 50%, 20%);
-        font-weight: bold;
     }
 }
   

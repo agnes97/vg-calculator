@@ -1,9 +1,10 @@
 import React from 'react'
+import Copyright from '../Copyright'
 import './index.css'
 
 const Footer: React.FC = () => (
     <footer>
-        <p>&#169; 2021 Jana Chaloupková</p>
+        <Copyright />
     </footer>
 )
 
