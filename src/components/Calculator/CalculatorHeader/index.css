@@ -40,4 +40,9 @@ header.calculator__header > section.calculator__header__content {
     padding: 0 1.5rem;
     line-height: 1rem;
     text-align: right;
+    margin-top: -1rem;
+}
+
+header.calculator__header > section.calculator__header__content > p:first-child {
+    color: hsl(230, 30%, 45%);
 }

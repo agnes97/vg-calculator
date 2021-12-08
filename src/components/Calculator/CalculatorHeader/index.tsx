@@ -26,7 +26,7 @@ const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previou
             
             <section className="calculator__header__content">
                 <p>
-                    {lastResult}
+                    {lastResult ?? <br/>}
                 </p>
                 <p>
                     {currentOperand || previousOperand
