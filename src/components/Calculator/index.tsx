@@ -18,7 +18,8 @@ const Calculator: React.FC = () => {
 
     // DETERMINE VALUE TYPE (ACTION)
     const determineAction = (character: Action["payload"]["value"]) => {
-        if (character === "DEL") return ACTIONS.CLEAR
+        if (character === "⇚") return ACTIONS.CLEAR // EDIT TO ONLY DELETE ONE DIGIT
+        if (character === "⦻") return ACTIONS.CLEAR
         if (character === "=") return ACTIONS.EVALUATE
         if (character === ".") return ACTIONS.ADD_DIGIT
         if (!isNaN(+character)) return ACTIONS.ADD_DIGIT
@@ -132,6 +133,7 @@ const Calculator: React.FC = () => {
                     className={`
                         calculator__button
                         ${!isNaN(+value) ? "calculator__button--number" : "calculator__button--sign"}
+                        ${value === "=" ? "span-2-columns" : ""}
                     `}
                     dispatch={dispatch} 
                     actionType={determineAction(value)}                

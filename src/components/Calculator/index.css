@@ -38,3 +38,7 @@ section.calculator {
 .calculator__button--number:hover {
     background-color: hsl(0, 0%, 100%);
 }
+
+.span-2-columns {
+    grid-column: span 2;
+}
