@@ -21,10 +21,13 @@ header.calculator__header {
     color: hsl(0, 0%, 100%);
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
     padding: 0 1rem;
     border-radius: 0.5rem;
     font-size: 1.3rem;
+}
+
+header.calculator__header > p {
+    align-self: flex-end;
 }
 
 .calculator__button {

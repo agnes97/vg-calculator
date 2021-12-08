@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
+import CalculatorNav from './CalculatorNav'
 import Button from './CalculatorButton'
 import './index.css'
 import { Action, State } from './types'
@@ -119,6 +120,7 @@ const Calculator: React.FC = () => {
     return (
         <section className="calculator">
             <header className="calculator__header">
+                <CalculatorNav/>
                 <p>
                     {currentOperand || previousOperand
                         ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`
