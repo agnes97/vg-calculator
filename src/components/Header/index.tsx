@@ -2,10 +2,9 @@ import React from 'react'
 import './index.css'
 
 const Header: React.FC = () => (
-    <nav>
+    <header>
         <h1>Vincent van Gogh's Calculator</h1>
-        <button>&#8801;</button>
-    </nav>
+    </header>
 )
 
 export default Header
