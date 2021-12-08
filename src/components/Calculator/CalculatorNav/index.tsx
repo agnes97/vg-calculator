@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Copyright from '../../Copyright'
-import Title from '../../Title'
+import Copyright from '../../../features/Copyright'
+import Title from '../../../features/Title'
 import './index.css'
 
 const CalculatorNav: React.FC = () => {
