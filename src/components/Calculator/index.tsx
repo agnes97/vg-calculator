@@ -32,10 +32,10 @@ const Calculator: React.FC = () => {
         const leftSide = Number(previousOperand)
         const rightSide = Number(currentOperand)
 
-        if (operation === "+") { return `VÝSLEDEK: ${(leftSide + rightSide).toLocaleString()}` }
-        if (operation === "-") { return `VÝSLEDEK: ${(leftSide - rightSide).toLocaleString()}` }
-        if (operation === "*") { return `VÝSLEDEK: ${(leftSide * rightSide).toLocaleString()}` }
-        if (operation === "÷") { return `VÝSLEDEK: ${(leftSide / rightSide).toLocaleString()}` }
+        if (operation === "+") { return (leftSide + rightSide).toLocaleString() }
+        if (operation === "-") { return (leftSide - rightSide).toLocaleString() }
+        if (operation === "*") { return (leftSide * rightSide).toLocaleString() }
+        if (operation === "÷") { return (leftSide / rightSide).toLocaleString() }
     }
     
     const reducer = (state: State, { type, payload }: Action): State => {
@@ -86,7 +86,8 @@ const Calculator: React.FC = () => {
                     overwrite: true,
                     previousOperand: null,
                     operation: null,
-                    currentOperand: evaluate(state)
+                    currentOperand: evaluate(state),
+                    lastResult: `${state.previousOperand} ${state.operation} ${state.currentOperand} = ${evaluate(state)}`,
                 }
 
             // CLEAR HISTORY
@@ -100,7 +101,7 @@ const Calculator: React.FC = () => {
         }
     }
 
-    const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    const [{ currentOperand, previousOperand, operation, lastResult }, dispatch] = useReducer(
         reducer,
         {}
     )
@@ -121,10 +122,11 @@ const Calculator: React.FC = () => {
     return (
         <section className="calculator">
             <CalculatorHeader 
-                headerText={headerText} 
-                currentOperand={currentOperand} 
-                previousOperand={previousOperand} 
-                operation={operation}
+                headerText={headerText}
+                currentOperand={currentOperand}
+                previousOperand={previousOperand}
+                operation={operation} 
+                lastResult={lastResult}            
             />
             {fillButtons().map((value: Action["payload"]["value"], index: number) => (
                 <Button

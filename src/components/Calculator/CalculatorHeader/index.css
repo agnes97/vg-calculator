@@ -39,4 +39,5 @@ header.calculator__header > button.nav-button:hover {
 header.calculator__header > section.calculator__header__content {
     padding: 0 1.5rem;
     line-height: 1rem;
+    text-align: right;
 }

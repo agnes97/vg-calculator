@@ -8,9 +8,10 @@ type Props= {
     currentOperand: State["currentOperand"]
     previousOperand: State["previousOperand"]
     operation: State["operation"]
+    lastResult: State["lastResult"]
 }
 
-const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previousOperand, operation }) => {
+const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previousOperand, operation, lastResult }) => {
     const [navState, setNavState] = useState(false)
 
     const handleNavStateOnClick = () => setNavState(!navState)
@@ -24,6 +25,9 @@ const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previou
             <CalculatorNav navState={navState} />
             
             <section className="calculator__header__content">
+                <p>
+                    {lastResult}
+                </p>
                 <p>
                     {currentOperand || previousOperand
                         ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`

@@ -7,6 +7,7 @@ export type State = {
     previousOperand?: StateOperandType
     operation?: StateOperandType
     overwrite?: boolean
+    lastResult?: string | undefined
 }
 
 export type Action = {
