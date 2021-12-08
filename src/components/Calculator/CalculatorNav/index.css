@@ -1,96 +1,58 @@
-/* DISPLAY ON DESKTOP */
 nav {
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
 }
 
-nav {
+nav > button.nav-button {
+    display: block;
+    border-bottom-right-radius: 3rem;
+    font-size: 2rem;
+    border: none;
+    color: hsl(60, 100%, 70%);
+    background-color: hsl(230, 30%, 40%);
+    padding: 1rem 2rem;
+    z-index: 1;
+}
+
+nav > .nav-content > button.nav-button {
+    padding: 0;
+    text-align: left;
+}
+
+nav > button:hover {
+    color: hsl(0, 0%, 100%);
+}
+
+/* MENU CLOSED */
+nav > .nav-content.closed {
     display: none;
 }
 
-/* DISPLAY ON MOBILE */
-@media screen and (max-width: 909px) {
-    nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+/* MENU OEPENED */
+nav > .nav-content.open {
+    background-color: hsl(230, 30%, 40%);
+    height: 100%;
+    width: 100%;
+}
 
-    nav {
-        display: block;
-    }
-    
-    nav > button.header-button,
-    nav > .nav-content > button.header-button {
-        display: block;
-        border-bottom-right-radius: 3rem;
-        font-size: 2rem;
-        border: none;
-        color: hsl(60, 100%, 70%);
-        background-color: hsl(230, 30%, 40%);
-        padding: 1rem 2rem;
-        z-index: 1;
-    }
+nav > .nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+}
 
-    nav > .nav-content > button.header-button {
-        padding: 0;
-        text-align: left;
-    }
-    
-    nav > button:hover {
-        color: hsl(0, 0%, 100%);
-    }
+nav > .nav-content > h1 {
+    color: hsl(230, 50%, 20%);
+    font-size: 2rem;
+    margin: 0;
+}
 
-    /* MENU CLOSED */
-    nav > .nav-content.closed {
-        display: none;
-    }
-
-    /* MENU OEPENED */
-    nav > .nav-content.open {
-        background-color: hsl(230, 30%, 40%);
-        position: absolute;
-        height: 100vh;
-        width: 100vw;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    nav > .nav-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    nav > .nav-content > h1 {
-        color: hsl(230, 50%, 20%);
-        font-size: 2rem;
-        margin: 0;
-    }
-
-    nav > .nav-content > h2, h3 {
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    nav > .nav-content > .counting-history {
-        flex-grow: 1;
-    }
-
-    nav > .nav-content > .counting-history > h3 {
-        text-align: left;
-    }
-
-    nav > .nav-content > .counting-history > ul {
-        padding: 0;
-        margin: 0.5rem 0;
-    }
-
-    nav > .nav-content > .counting-history > ul > li {
-        list-style: none;
-        color: hsl(232, 25%, 55%);
-    }
+nav > .nav-content > h2, h3 {
+    font-size: 1.5rem;
+    margin: 0;
 }

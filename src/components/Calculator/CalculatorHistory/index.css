@@ -1,0 +1,18 @@
+
+.calculator-history {
+    flex-grow: 1;
+}
+
+.calculator-history > h3 {
+    text-align: left;
+}
+
+.calculator-history > ul {
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.calculator-history > ul > li {
+    list-style: none;
+    color: hsl(232, 25%, 55%);
+}

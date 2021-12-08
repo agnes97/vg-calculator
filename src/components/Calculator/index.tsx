@@ -119,8 +119,8 @@ const Calculator: React.FC = () => {
     
     return (
         <section className="calculator">
+            <CalculatorNav/>
             <header className="calculator__header">
-                <CalculatorNav/>
                 <p>
                     {currentOperand || previousOperand
                         ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`
