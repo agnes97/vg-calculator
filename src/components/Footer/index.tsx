@@ -1,5 +1,5 @@
 import React from 'react'
-import Copyright from '../../features/Copyright'
+import Copyright from '../Copyright'
 import './index.css'
 
 const Footer: React.FC = () => (

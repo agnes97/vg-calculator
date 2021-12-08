@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../../features/Title'
+import Title from '../Title'
 import './index.css'
 
 const Header: React.FC = () => (

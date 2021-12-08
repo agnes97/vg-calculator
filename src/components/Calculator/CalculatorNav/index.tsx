@@ -1,6 +1,6 @@
 import React from 'react'
-import Copyright from '../../../features/Copyright'
-import Title from '../../../features/Title'
+import Copyright from '../../Copyright'
+import Title from '../../Title'
 import CalculatorHistory from '../CalculatorHistory'
 import './index.css'
 
