@@ -14,20 +14,6 @@ section.calculator {
     gap: 0.7rem;
 }
 
-header.calculator__header {
-    grid-column: 1 / 5;
-    width: 100%;
-    height: 100%;
-    background-color: hsl(230, 30%, 25%);
-    color: hsl(0, 0%, 100%);
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 0 1rem;
-    border-radius: 0.5rem;
-    font-size: 1.3rem;
-}
-
 .calculator__button {
     width: 100%;
     height: 100%;

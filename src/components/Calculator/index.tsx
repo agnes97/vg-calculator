@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
-import CalculatorNav from './CalculatorNav'
 import Button from './CalculatorButton'
 import './index.css'
 import { Action, State } from './types'
+import CalculatorHeader from './CalculatorHeader'
 
 export enum ACTIONS {
     ADD_DIGIT,
@@ -119,15 +119,12 @@ const Calculator: React.FC = () => {
     
     return (
         <section className="calculator">
-            <CalculatorNav/>
-            <header className="calculator__header">
-                <p>
-                    {currentOperand || previousOperand
-                        ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`
-                        : headerText
-                    }
-                </p>
-            </header>
+            <CalculatorHeader 
+                headerText={headerText} 
+                currentOperand={currentOperand} 
+                previousOperand={previousOperand} 
+                operation={operation}
+            />
             {fillButtons().map((value: Action["payload"]["value"], index: number) => (
                 <Button
                     key={index}
