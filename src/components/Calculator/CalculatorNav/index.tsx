@@ -10,11 +10,9 @@ type Props = {
 
 const CalculatorNav: React.FC<Props> = ({ navState }) => (
     <nav className={`nav-content ${navState === true ? "open" : "closed"}`}>
-        <section>
-            <Title />
-            <CalculatorHistory />
-            <Copyright />
-        </section>
+        <Title />
+        <CalculatorHistory />
+        <Copyright />
     </nav>
 )
 

@@ -32,7 +32,7 @@ nav {
         padding: 1rem;
     }
 
-    nav.nav-content * h1 {
+    nav.nav-content > h1 {
         color: hsl(230, 50%, 20%);
         font-size: 2rem;
         margin: 0;
