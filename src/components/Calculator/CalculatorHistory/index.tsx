@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
+import Copyright from '../../Copyright'
+import Title from '../../Title'
+import CalculatorHistoryList from '../CalculatorHistoryList'
 import './index.css'
 
-const CalculatorHistory: React.FC = () => (
-    <div className="calculator-history">
-        <h3>History:</h3>
-        <ul>
-            {/* TODO: MAP <LI> FROM HISTORY */}
-            <li>3 + 1 = 4</li> 
-            <li>3 + 1 = 4</li> 
-            <li>3 + 1 = 4</li> 
-            <li>3 + 1 = 4</li> 
-        </ul>
-    </div>
-)
+type HistoryState = {
+    historyState: boolean
+}
+
+type Props = {
+    historyState: HistoryState["historyState"]
+    setHistoryState: Dispatch<HistoryState["historyState"]>
+}
+
+const CalculatorHistory: React.FC<Props> = ({ historyState, setHistoryState }) => {   
+    const handleClosing = () => setHistoryState(false)
+
+    return (
+        <nav className={`nav-content ${historyState === true ? "open" : "closed"}`}>
+            <header>
+                <Title />
+                <button className="nav-button" onClick={handleClosing}>
+                    &#10007;
+                </button>
+            </header>
+            <CalculatorHistoryList />
+            <Copyright />
+        </nav>
+    )
+}
 
 export default CalculatorHistory

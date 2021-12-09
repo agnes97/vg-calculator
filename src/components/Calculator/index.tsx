@@ -4,6 +4,7 @@ import Button from './CalculatorButton'
 import './index.css'
 import { Action, State } from './types'
 import CalculatorHeader from './CalculatorHeader'
+import CalculatorHistory from './CalculatorHistory'
 
 export enum ACTIONS {
     ADD_DIGIT,
@@ -11,13 +12,16 @@ export enum ACTIONS {
     CLEAR,
     DELETE_DIGIT,
     EVALUATE,
+    OPEN_HISTORY
 }
 
 const Calculator: React.FC = () => {
     const [headerText, setHeaderText] = useState<string>("Start counting, baby! 💛")
+    const [historyState, setHistoryState] = useState(false)
 
     // DETERMINE VALUE TYPE (ACTION)
     const determineAction = (character: Action["payload"]["value"]) => {
+        if (character === "↻") return ACTIONS.OPEN_HISTORY
         if (character === "⇚") return ACTIONS.DELETE_DIGIT // EDIT TO ONLY DELETE ONE DIGIT
         if (character === "⦻") return ACTIONS.CLEAR
         if (character === "=") return ACTIONS.EVALUATE
@@ -109,6 +113,12 @@ const Calculator: React.FC = () => {
                 setHeaderText("Anything else? 💭")
                 return {}
 
+            // OPEN HISTORY
+            case ACTIONS.OPEN_HISTORY:
+                setHistoryState(true) // Open Calculator History
+                setHeaderText("Anything else? 💭")
+                return {}
+
             // DEFAULT RETURN
             default:
                 return state
@@ -142,6 +152,7 @@ const Calculator: React.FC = () => {
                 operation={operation} 
                 lastResult={lastResult}            
             />
+            <CalculatorHistory historyState={historyState} setHistoryState={setHistoryState} />
             {fillButtons().map((value: Action["payload"]["value"], index: number) => (
                 <Button
                     key={index}

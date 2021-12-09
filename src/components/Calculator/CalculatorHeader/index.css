@@ -13,29 +13,6 @@ header.calculator__header {
     font-size: 1.3rem;
 }
 
-@media screen and (min-width: 910px) {
-    header.calculator__header > button.nav-button {
-        display: none;
-    }
-}
-
-header.calculator__header > button.nav-button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-bottom-right-radius: 3rem;
-    font-size: 2rem;
-    border: none;
-    color: hsl(60, 100%, 70%);
-    background-color: hsl(230, 30%, 40%);
-    padding: 1.5rem 2rem;
-    z-index: 1;
-}
-
-header.calculator__header > button.nav-button:hover {
-    color: hsl(0, 0%, 100%);
-}
-
 header.calculator__header > section.calculator__header__content {
     padding: 0 1.5rem;
     line-height: 1rem;

@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import CalculatorNav from '../CalculatorNav'
+import React from 'react'
 import { State } from '../types'
 import './index.css'
 
@@ -12,25 +11,15 @@ type Props= {
 }
 
 const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previousOperand, operation, lastResult }) => {
-    const [navState, setNavState] = useState(false)
-
-    const handleNavStateOnClick = () => setNavState(!navState)
-    
     return (    
-        <header className="calculator__header">
-            {/* TODO: Turn button to cross for closing nav! */}
-            <button className="nav-button" onClick={handleNavStateOnClick}>
-                &#8801;
-            </button>
-            <CalculatorNav navState={navState} />
-            
+        <header className="calculator__header">           
             <section className="calculator__header__content">
                 <p>
                     {lastResult ?? <br/>}
                 </p>
                 <p>
                     {currentOperand || previousOperand
-                        ? `${previousOperand ?? ''} ${operation ?? ''} ${currentOperand ?? ''}`
+                        ? `${previousOperand?.toLocaleString() ?? ''} ${operation ?? ''} ${currentOperand?.toLocaleString() ?? ''}`
                         : headerText}
                 </p>
             </section>

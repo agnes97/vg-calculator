@@ -1,18 +1,73 @@
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 3rem;
 
-.calculator-history {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
 }
 
-.calculator-history > h3 {
-    text-align: left;
+/* MENU CLOSED */
+nav.nav-content.closed {
+    display: none;
 }
 
-.calculator-history > ul {
-    padding: 0;
-    margin: 0.5rem 0;
+/* MENU OEPENED */
+nav.nav-content.open {
+    background-color: hsl(230, 30%, 40%);
+    height: 100%;
+    width: 100%;
 }
 
-.calculator-history > ul > li {
-    list-style: none;
-    color: hsl(232, 25%, 55%);
+nav.nav-content > h2, h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+nav.nav-content > header > h1 {
+    color: hsl(230, 50%, 20%);
+    font-size: 2rem;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+nav.nav-content > header > button {
+    padding: 1rem;
+    aspect-ratio: 1 /1;
+    margin: 0 auto;
+    background-color: hsl(230, 50%, 20%);
+    border: none;
+    color: hsl(60, 100%, 70%);
+    font-size: 1.5rem;
+    line-height: 1rem;
+    border-radius: 50%;
+    border: 0.2rem solid hsl(60, 100%, 70%) ;
+}
+
+nav.nav-content > header > button:hover {
+    background-color: hsl(230, 50%, 20%);
+    border: 0.2rem solid hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 100%);
+}
+
+/* MENU DESKTOP - DON'T DISPLAY TITLE AND COPYRIGHT */
+@media screen and (min-width: 910px) {
+    nav.nav-content {
+        padding: 2.5rem 0;
+    }
+
+    nav.nav-content > header > h1,
+    nav.nav-content > p.copyright {
+        display: none;
+    }
+
+    nav.nav-content > header {
+        order: 1;
+    }
 }
