@@ -18,6 +18,12 @@ export enum ACTIONS {
 const Calculator: React.FC = () => {
     const [headerText, setHeaderText] = useState<string>("Start counting, baby! 💛")
     const [historyState, setHistoryState] = useState(false)
+    const [currentHistory, setCurrentHistory] = useState<string[]>([])
+
+    const fillResultHistory = ( currentHistory: string[], lastResult: string) => {
+        const newHistory = [...currentHistory, lastResult]
+        setCurrentHistory(newHistory)
+    }
 
     // DETERMINE VALUE TYPE (ACTION)
     const determineAction = (character: Action["payload"]["value"]) => {
@@ -92,6 +98,7 @@ const Calculator: React.FC = () => {
                     operation: null,
                     currentOperand: evaluate(state),
                     lastResult: `${state.previousOperand} ${state.operation} ${state.currentOperand} = ${evaluate(state)}`,
+                    history: fillResultHistory(currentHistory, `${state.previousOperand} ${state.operation} ${state.currentOperand} = ${evaluate(state)}`),
                 }
 
             case ACTIONS.DELETE_DIGIT: 
@@ -152,7 +159,7 @@ const Calculator: React.FC = () => {
                 operation={operation} 
                 lastResult={lastResult}            
             />
-            <CalculatorHistory historyState={historyState} setHistoryState={setHistoryState} />
+            <CalculatorHistory historyState={historyState} setHistoryState={setHistoryState} currentHistory={currentHistory} />
             {fillButtons().map((value: Action["payload"]["value"], index: number) => (
                 <Button
                     key={index}

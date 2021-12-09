@@ -11,20 +11,21 @@ type HistoryState = {
 type Props = {
     historyState: HistoryState["historyState"]
     setHistoryState: Dispatch<HistoryState["historyState"]>
+    currentHistory: string[]
 }
 
-const CalculatorHistory: React.FC<Props> = ({ historyState, setHistoryState }) => {   
+const CalculatorHistory: React.FC<Props> = ({ currentHistory, historyState, setHistoryState }) => {   
     const handleClosing = () => setHistoryState(false)
 
     return (
         <nav className={`nav-content ${historyState === true ? "open" : "closed"}`}>
             <header>
-                <Title />
                 <button className="nav-button" onClick={handleClosing}>
                     &#10007;
                 </button>
+                <Title />
             </header>
-            <CalculatorHistoryList />
+            <CalculatorHistoryList currentHistory={currentHistory} />
             <Copyright />
         </nav>
     )

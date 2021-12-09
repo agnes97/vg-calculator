@@ -8,6 +8,7 @@ export type State = {
     operation?: StateOperandType
     overwrite?: boolean
     lastResult?: string | undefined
+    history?: any
 }
 
 export type Action = {

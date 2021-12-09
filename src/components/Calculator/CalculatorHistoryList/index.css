@@ -1,6 +1,7 @@
 
 .calculator-history {
     flex-grow: 1;
+    overflow: auto;
 }
 
 .calculator-history > h3 {
