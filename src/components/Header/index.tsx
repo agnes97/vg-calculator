@@ -3,7 +3,7 @@ import Title from '../Title'
 import './index.css'
 
 const Header: React.FC = () => (
-    <header>
+    <header className="desktop-header">
         <Title />
     </header>
 )
