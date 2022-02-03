@@ -18,7 +18,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "plugins": [
+      {"name": "@strv/react" }, 
+      {"name": "@strv/typescript"},
+      {"name": "@strv/typescript/react"},
+      {"name": "@strv/typescript/style"}
+    ]
   },
   "include": [
     "src"
