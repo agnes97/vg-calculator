@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import Title from '../Title'
 import './index.css'
 
-const Header: React.FC = () => (
+const Header: FC = () => (
     <header className="desktop-header">
         <Title />
     </header>

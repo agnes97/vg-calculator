@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 import './index.css'
 
 type Props = {
     currentHistory: string[]
 }
 
-const CalculatorHistoryList: React.FC<Props> = ({ currentHistory }) => {
+const CalculatorHistoryList: FC<Props> = ({ currentHistory }) => {
     const historyIsEmpty = currentHistory.length === 0
     const emptyHistoryMessage = "There is no history yet. :("
 

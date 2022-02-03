@@ -1,5 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
 
-const Title: React.FC = () => <h1>Vincent van Gogh's Calculator</h1>
+const Title: FC = () => <h1>Vincent van Gogh's Calculator</h1>
 
 export default Title

@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import './index.css'
 import Star from './Star'
 
-const StarryNight: React.FC = () => (
+const StarryNight: FC = () => (
     <div className="starry-night">
         <Star />
         <Star />

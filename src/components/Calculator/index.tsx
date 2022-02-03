@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer, useState } from 'react'
+import { FC, useCallback, useEffect, useReducer, useState } from 'react'
 import { fillButtons } from '../../services/calculatorData'
 import Button from './CalculatorButton'
 import './index.css'
@@ -15,7 +15,7 @@ export enum ACTIONS {
     OPEN_HISTORY
 }
 
-const Calculator: React.FC = () => {
+const Calculator: FC = () => {
     const [headerText, setHeaderText] = useState<string>("Start counting, baby! 💛")
     const [historyState, setHistoryState] = useState(false)
     const [currentHistory, setCurrentHistory] = useState<string[]>([])

@@ -1,4 +1,4 @@
-import React, { Dispatch } from 'react'
+import { FC, Dispatch } from 'react'
 import Copyright from '../../Copyright'
 import Title from '../../Title'
 import CalculatorHistoryList from '../CalculatorHistoryList'
@@ -14,7 +14,7 @@ type Props = {
     currentHistory: string[]
 }
 
-const CalculatorHistory: React.FC<Props> = ({ currentHistory, historyState, setHistoryState }) => {   
+const CalculatorHistory: FC<Props> = ({ currentHistory, historyState, setHistoryState }) => {   
     const handleClosing = () => setHistoryState(false)
 
     return (

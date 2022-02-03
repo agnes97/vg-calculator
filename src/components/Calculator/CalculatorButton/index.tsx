@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { ACTIONS } from '..'
 import { Action } from '../types'
 
@@ -10,7 +10,7 @@ type Props = {
     actionType: ACTIONS | null
 }
 
-const Button: React.FC<Props> = ({ className, value, dispatch, actionType }) => {
+const Button: FC<Props> = ({ className, value, dispatch, actionType }) => {
     const passDispatch = () => dispatch({ type: actionType, payload: { value } })
 
     return (

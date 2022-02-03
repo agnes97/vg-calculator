@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import Copyright from '../Copyright'
 import './index.css'
 
-const Footer: React.FC = () => (
+const Footer: FC = () => (
     <footer>
         <Copyright />
     </footer>

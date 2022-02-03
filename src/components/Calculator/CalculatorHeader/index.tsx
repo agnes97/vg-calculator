@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { State } from '../types'
 import './index.css'
 
@@ -10,7 +10,7 @@ type Props= {
     lastResult: State["lastResult"]
 }
 
-const CalculatorHeader: React.FC<Props> = ({ headerText, currentOperand, previousOperand, operation, lastResult }) => {
+const CalculatorHeader: FC<Props> = ({ headerText, currentOperand, previousOperand, operation, lastResult }) => {
     return (    
         <header className="calculator__header">           
             <section className="calculator__header__content">
