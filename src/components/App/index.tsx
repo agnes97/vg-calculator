@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import type { FC } from 'react'
 
-import './index.css';
-import Calculator from '../Calculator';
-import Footer from '../Footer';
-import StarryNight from '../StarryNight';
-import Header from '../Header';
+import './index.css'
+import Calculator from '../Calculator'
+import Footer from '../Footer'
+import Header from '../Header'
+import StarryNight from '../StarryNight'
 
 const App: FC = () => (
   <div className="page-wrapper">
@@ -17,4 +17,4 @@ const App: FC = () => (
   </div>
 )
 
-export default App;
+export default App
