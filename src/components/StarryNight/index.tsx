@@ -1,9 +1,9 @@
 import type { FC } from 'react'
 
 import './index.css'
-import Star from './Star'
+import { Star } from './Star'
 
-const StarryNight: FC = () => (
+export const StarryNight: FC = () => (
   <div className="starry-night">
     <Star />
     <Star />
@@ -12,5 +12,3 @@ const StarryNight: FC = () => (
     <Star />
   </div>
 )
-
-export default StarryNight

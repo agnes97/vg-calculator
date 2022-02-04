@@ -1,12 +1,12 @@
 import type { FC } from 'react'
 
 import './index.css'
-import Calculator from '../Calculator'
-import Footer from '../Footer'
-import Header from '../Header'
-import StarryNight from '../StarryNight'
+import { Calculator } from '../Calculator'
+import { Footer } from '../Footer'
+import { Header } from '../Header'
+import { StarryNight } from '../StarryNight'
 
-const App: FC = () => (
+export const App: FC = () => (
   <div className="page-wrapper">
     <StarryNight />
     <Header />
@@ -16,5 +16,3 @@ const App: FC = () => (
     <Footer />
   </div>
 )
-
-export default App

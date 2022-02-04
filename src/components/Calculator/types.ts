@@ -1,6 +1,6 @@
 import type { ACTIONS } from '.'
 
-type StateOperandType = string | number | null | (() => void)
+type StateOperandType = string | number | null
 
 // eslint-disable-next-line no-warning-comments
 // TODO: Correct type of history!

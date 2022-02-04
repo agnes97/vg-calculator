@@ -1,14 +1,10 @@
-// eslint-disable-next-line no-warning-comments
-// TODO: Type problem with template-expressions >>
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-
 import type { FC } from 'react'
 import { useCallback, useEffect, useReducer, useState } from 'react'
 
-import Button from './CalculatorButton'
+import { Button } from './CalculatorButton'
 import './index.css'
-import CalculatorHeader from './CalculatorHeader'
-import CalculatorHistory from './CalculatorHistory'
+import { CalculatorHeader } from './CalculatorHeader'
+import { CalculatorHistory } from './CalculatorHistory'
 import type { Action, State } from './types'
 
 import { fillButtons } from '../../services/calculatorData'
@@ -22,7 +18,7 @@ export enum ACTIONS {
   OPEN_HISTORY,
 }
 
-const Calculator: FC = () => {
+export const Calculator: FC = () => {
   const [headerText, setHeaderText] = useState<string>('Start counting, baby! 💛')
   const [hasPreviousOperations, setPreviousOperations] = useState(false)
   const [currentHistory, setCurrentHistory] = useState<string[]>([])
@@ -221,5 +217,3 @@ const Calculator: FC = () => {
     </section>
   )
 }
-
-export default Calculator

@@ -5,7 +5,7 @@ type Props = {
   currentHistory: string[]
 }
 
-const CalculatorHistoryList: FC<Props> = ({ currentHistory }) => {
+export const CalculatorHistoryList: FC<Props> = ({ currentHistory }) => {
   const isHistoryIsEmpty = currentHistory.length === 0
   const emptyHistoryMessage = 'There is no history yet. :('
 
@@ -24,5 +24,3 @@ const CalculatorHistoryList: FC<Props> = ({ currentHistory }) => {
     </div>
   )
 }
-
-export default CalculatorHistoryList

@@ -11,7 +11,7 @@ type Props= {
   lastResult: State['lastResult']
 }
 
-const CalculatorHeader: FC<Props> = ({
+export const CalculatorHeader: FC<Props> = ({
   headerText,
   currentOperand,
   previousOperand,
@@ -35,5 +35,3 @@ const CalculatorHeader: FC<Props> = ({
     </header>
   )
 }
-
-export default CalculatorHeader

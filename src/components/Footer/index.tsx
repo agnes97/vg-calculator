@@ -1,12 +1,10 @@
 import type { FC } from 'react'
 
-import Copyright from '../Copyright'
+import { Copyright } from '../Copyright'
 import './index.css'
 
-const Footer: FC = () => (
+export const Footer: FC = () => (
   <footer>
     <Copyright />
   </footer>
 )
-
-export default Footer

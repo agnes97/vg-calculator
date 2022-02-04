@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import './index.css'
 
-const Star: FC = () => {
+export const Star: FC = () => {
   // 1 is the outline/biggest circle!
   const innerCircles = [1, 2, 3, 4, 5] as const
   const innerCirclesLenght = innerCircles.length - 1
@@ -17,9 +17,7 @@ const Star: FC = () => {
         {previousValue}
       </div>
     ),
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <></>,
   )
 }
-
-
-export default Star

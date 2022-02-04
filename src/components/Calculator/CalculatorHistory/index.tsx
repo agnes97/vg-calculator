@@ -1,8 +1,8 @@
 import type { FC, Dispatch } from 'react'
 
-import Copyright from '../../Copyright'
-import Title from '../../Title'
-import CalculatorHistoryList from '../CalculatorHistoryList'
+import { Copyright } from '../../Copyright'
+import { Title } from '../../Title'
+import { CalculatorHistoryList } from '../CalculatorHistoryList'
 import './index.css'
 
 type HistoryState = {
@@ -15,7 +15,7 @@ type Props = {
   currentHistory: string[]
 }
 
-const CalculatorHistory: FC<Props> = ({ currentHistory, historyState, setHistoryState }) => {
+export const CalculatorHistory: FC<Props> = ({ currentHistory, historyState, setHistoryState }) => {
   const handleClosing = () => setHistoryState(false)
 
   return (
@@ -31,5 +31,3 @@ const CalculatorHistory: FC<Props> = ({ currentHistory, historyState, setHistory
     </nav>
   )
 }
-
-export default CalculatorHistory

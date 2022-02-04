@@ -11,7 +11,7 @@ type Props = {
   actionType: ACTIONS | null
 }
 
-const Button: FC<Props> = ({ className, value, dispatch, actionType }) => {
+export const Button: FC<Props> = ({ className, value, dispatch, actionType }) => {
   const passDispatch = () => dispatch({ type: actionType, payload: { value } })
 
   return (
@@ -24,5 +24,3 @@ const Button: FC<Props> = ({ className, value, dispatch, actionType }) => {
     </button>
   )
 }
-
-export default Button
